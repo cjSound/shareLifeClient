@@ -1,0 +1,68 @@
+*{
+    font-family: 'Microsoft YaHei';
+}
+$icolor:#0099FF;//蓝色  顶  赞   图片样式
+$iblack:#989696;//蓝色  顶  赞   图片样式
+$background: #efeff4;//系统背景颜色
+
+.mui-table-view {
+    .mui-table-view-cell{
+        padding: 10px;
+    }
+}
+i.good{
+    color: $icolor;
+    font-style: normal;
+    padding-right: 10px;
+    font-size: 14px;
+}
+.iblack{
+    color: $iblack;
+    font-style: normal;
+    padding-right: 10px;
+    font-size: 14px;
+}
+.icolor{
+    color: $icolor;
+}
+i.fa-thumbs-o-up{
+    padding-right: 5px;
+}
+.emptyline{
+    height: 5px;
+    width: 100%;
+    background: $background;
+}
+.head-span{
+    height: 44px;
+    line-height: 44px;
+}
+//回复  固定样式
+.fixreply{
+    overflow: hidden;
+    position: fixed;
+    bottom: 0px;
+    height: 40px;
+    width: 100%;
+    border-top: 1px solid $background;
+    background: #ffffff;
+    z-index: 2;
+    .input{
+        float: left;
+        width: 100%;
+        padding: 0 2%;
+        input{
+            height: 30px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+    }
+     
+}
+
+.thememunu{
+    overflow: hidden;
+    .updown{
+        float: right;
+    }
+}
