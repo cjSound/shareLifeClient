@@ -24,14 +24,24 @@
         		
         	},
         	choise(it){
-        		console.log(it)
+        		this.$router.push({path:'/theme/themeMain?id='+it.id});
         	}
         },
         mounted(){
         	this.srcollHeight=window.bodyHeight-50;
         	this.$store.getters.app.tabbar='3'	
         	this.init();
-        }
+        },
+        beforeRouteLeave(to,from,next){
+			let isBack = window.isBack;
+		   	if (isBack) {
+		   		this.$store.commit("setTransitionName","slide-right");
+		   	} else {
+		   		this.$store.commit("setTransitionName","slide-left");
+		   	}
+		   	window.isBack = false
+	     	next()
+		}
     }
 </script>
 

@@ -25,10 +25,12 @@ const router = new VueRouter({
 	    	path:'/theme/themeback',meta:{},component:require('../apps/theme/themeback')
 	  	},{
 	    	path:'/theme/talkinfo',meta:{},component:require('../apps/theme/talkinfo')
+	  	},{
+	    	path:'/theme/themeMain',meta:{},component:require('../apps/theme/themeMain')
 	  	},
 	  	/*发现*/
 	  	{
-	    	path:'/find/find',meta:{},component:require('../apps/find/find')
+	    	path:'/find/findmain',meta:{},component:require('../apps/find/findmain')
 	  	}, {
 	    	path:'/focus/focus',meta:{},component:require('../apps/focus/focus')
 	  	}, {

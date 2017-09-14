@@ -8,7 +8,7 @@
 			<span class="mui-icon mui-icon-extra mui-icon-extra-heart"> </span>
 			<span class="mui-tab-label">关注</span>
 		</a>
-		<a class="zy-tab-item"   :class="{'zy-active':app.tabbar=='3'}" @click="goto('find/find?close=no',3)">
+		<a class="zy-tab-item"   :class="{'zy-active':app.tabbar=='3'}" @click="goto('find/findmain?close=no',3)">
 			<span class="mui-icon mui-icon-paperplane"></span>
 			<span class="mui-tab-label">发现</span>
 		</a>

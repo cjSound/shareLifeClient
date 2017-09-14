@@ -73,7 +73,9 @@
 					  	}
 						mui.confirm('检测到还没有在该主题发过动态，现在立即前往发布吧', '提示', btnArray, function(e) {
 							if (e.index == 1) {
+								
 								_this.$store.commit("setPublish", publish);
+								//初始化主题信息
 								_this.$root.$emit("publishInit",publish);
 							}  
 						})

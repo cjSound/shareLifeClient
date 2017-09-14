@@ -66,7 +66,7 @@
 			init(){
 				//监听 首页其他的地方， 没有发布动态，直接通过触发全局事件来触发修改相关默认值
 				this.$root.$on("publishInit",msg=>{
-					this.$emit("init");
+					//this.$emit("init");
 					this.info.themeid=this.publish.themeid;
 					this.info.topid=this.publish.topid;
 					this.transname =this.publish.tname;
