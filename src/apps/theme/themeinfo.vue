@@ -82,7 +82,7 @@
 		</transition>
 	</div>
 </template>
-
+ 
 <script>
 	import SY from 'sy'
 	import dim from './../main/dim.vue'
