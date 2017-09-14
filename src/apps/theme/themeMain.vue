@@ -5,7 +5,7 @@
 			<h1 class="mui-title"  ></h1>
 			<span class="head-span mui-pull-right icolor" @click="save">回复</span>
 			
-			
+			<div></div>
 		</header>	
 	</div>
 </template>
