@@ -38,13 +38,16 @@
 	export default {
     	props:[
 			'ids',
-			'type',//
+			'type',//1 首页 图文  2首页视频    3  
+			'themeid',//具体的帖子
+			'ttype'//1最新  2最热
         ],
         data () {
             return {
             	url:SY.util.getUrl(),
             	srcollHeight: '',
             	listDatas:[],
+            	geturl:'',
             	pager:SY.util.cloneObj(SY.config.pager),
             }
         },
@@ -131,9 +134,13 @@
 					mui(".mui-scroll-wrapper").on("tap",'.click',function(){
 						this.click(); 
 					})
-				} 
+				}
 				function pulldownRefresh() {//下拉刷新的方法     读取首页  更新数据
 					_this.pager.page=1;
+					if(_this.themeid!=null){//只有当type 3时时候有themeid  和ttype类型 （  1最新  2最热排序）
+						_this.pager.themeid=_this.themeid;
+						_this.pager.ttype=_this.ttype;
+					} 
 					_this.pager.type=_this.type;
 					SY.net.getJSON("/api/share/getShare", _this.pager   , res => {
 						_this.listDatas=_this.formatDatas(res.data.pageData);

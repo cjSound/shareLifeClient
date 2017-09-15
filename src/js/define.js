@@ -18,7 +18,7 @@ if(process.env.NODE_ENV==="production"){
 	debug=false;
 	SERVER_BAS_URL="http://192.168.1.26:8081/ShareLife";//生产
 }else{
-	SERVER_BAS_URL="http://192.168.1.26:8081/ShareLife";//开发
+	SERVER_BAS_URL="http://192.168.1.154:8081/ShareLife";//开发
 }
 
 var CODE={
