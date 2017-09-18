@@ -21,7 +21,7 @@
 						<div id="focustheme" class="mui-scroll-wrapper" :style="{height: srcollHeight+'px'}">
 						<div class="mui-scroll"  >
 							<ul class="mui-table-view">
-							<li class="mui-table-view-cell mui-media" v-for="(item,index) in list">
+							<li class="mui-table-view-cell mui-media click" v-for="(item,index) in list" @click="tothememain(item)">
 								<img class="mui-media-object mui-pull-left" :src="url+item.icon">
 								<div class="mui-media-body">
 									<p class="tit">
@@ -78,6 +78,9 @@
 			},
 			publishInit(){
 				this.tabmenu.state=false;
+			},
+			tothememain(it){
+				this.$router.push({path:'/theme/themeMain?id='+it.themeid});
 			},
 			menuInit(){
 				var _this =this ;
@@ -166,7 +169,7 @@
 			if(to.query.close==null){//如果是跳转到首页的其他的界面   就吧下面的菜单关闭掉，  如果是跳转到其他的按钮  不控制
 				this.$store.getters.app.tabbar=''	
 			}
-			//this.$destroy();
+			this.$destroy();
 			// 做完回退动画后，要设置成前进动画，否则下次打开页面动画将还是回退
 			window.isBack = false
 			next()

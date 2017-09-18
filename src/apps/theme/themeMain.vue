@@ -2,7 +2,7 @@
 	<div class="imgvideocnt" >
 		<header id="header" class="mui-bar mui-bar-nav "  >
 			<a  href="javaScript:void(0)" class=" mui-icon mui-icon-left-nav mui-pull-left" @click="$router.go(-1)"></a>
-			<h1 class="mui-title"  ></h1>
+			<h1 class="mui-title"  @click="totop">{{scoll.tit}}</h1>
 			<span class="head-span mui-pull-right icolor"  >
 				<publish ref="publish"  @init="initpbls"  @close="init"></publish>
 			</span>
@@ -38,16 +38,16 @@
 				</div>
 				<div id="sgroup" class="mui-slider-group"   :style="{height: srcollHeight+'px'}" v-if="param!=''"  >
 					<div id="thememainnew" class="mui-slider-item mui-control-content mui-active">
-						<div class="fixSrcoll"></div>
+						<div   :class="{'fixSrcoll':scoll.state}"></div>
 						<themes  :ids="'themenew'" :ttype="1" :themeid="param.id" :type="3" v-if="tabmenu.state & tabmenu.index==1"></themes>
 					</div>
 					<div id="thememainhot" class="mui-slider-item mui-control-content">
-						<div class="fixSrcoll"></div>
+						<div  :class="{'fixSrcoll':scoll.state}"></div>
 						<themes  :ids="'themehot'" :ttype="2" :themeid="param.id" :type="3" v-if="tabmenu.state & tabmenu.index==2"></themes>
 					</div>
 				</div>
 			</div>
-			
+			<totop @top="tops" :id="'sgroup'"></totop>
 		</div>
 	</div>
 </template>
@@ -57,6 +57,7 @@
 	import publish from './../../components/publish.vue'
 	import mui from './../../assets/js/mui.min.js'
 	import themes from './../main/themeMain.vue'
+	import totop from './../../components/util/totop.vue'
 	export default {
     	props:[
     	
@@ -73,9 +74,10 @@
 					index:1,
 					state:true
 				},
+				scoll:{state:true,tit:''}
             }
         },
-        components: {publish,themes},
+        components: {publish,themes,totop},
         computed: {
         	 
         },
@@ -84,6 +86,10 @@
         		this.getThemeTop();
         		this.menuInit();
         		this.scrollNow();
+        	},
+        	tops(){
+        		this.scoll.tit='';
+        		this.scoll.state=true;
         	},
         	goto(url){
         		this.$router.push({path:url});
@@ -99,7 +105,6 @@
         	},
         	getThemeTop(){
         		this.param=SY.util.getParams();
-        		
         		SY.net.getJSON("/api/theme/getThemeInfosById",  { id:this.param.id } , res => {
 	        		this.theme=res.theme;
 	        		this.attent=res.attent;
@@ -124,12 +129,20 @@
 				});
 			},
 			scrollNow(){
+				var _this =this;
 				setTimeout(function(){
-					document.getElementById('sgroup').onscroll = ()=> {
-			          console.log(document.body.scrollTop);
+					window.onscroll = ()=> {
+			          if(document.body.scrollTop>130){
+			          	_this.scoll.state=false;
+			          	_this.scoll.tit=_this.theme.tname;
+			          }
 			        }
 				},1000);
-				
+			},
+			totop(){
+				this.scoll.tit='';
+        		this.scoll.state=true;
+				document.documentElement.scrollTop = document.body.scrollTop =0;
 			}
         },
         mounted(){
@@ -148,6 +161,8 @@
 		   	}
 		   	if(to.path.indexOf('findmain')){
 		   		this.$store.getters.app.tabbar='3';
+		   	}else if(to.path.indexOf('focus')){
+		   		this.$store.getters.app.tabbar='2';
 		   	}
 		   	this.$destroy();
 		   	window.isBack = false
@@ -166,10 +181,12 @@
 		width: 80px;
 		height: 80px;
 		float: left;	
+		max-width: 23%;
 		border-radius: 8px;
 	}
 	.info{
 		float: left;
+		width: 77%;
 		padding-left: 10px;
 	}
 }

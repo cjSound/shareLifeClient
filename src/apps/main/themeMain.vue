@@ -4,12 +4,15 @@
 			<div class="mui-scroll">
 				<div class="sharecnt">
 					<div class="tms" v-for="(item,index) in listDatas">
+						<!--内容 个人信息-->
 						<div class="pinfo click"  >
 							<div class="img"><img :src="url+item.icon" alt="" /></div>
 							<div class="name">{{item.username}}</div>
 							<div class="theme click" @click="totheme(item.themeid)"><span class="smbtn">{{item.themeName}}</span></div>
 						</div>
+						<!--图片展示-->
 						<dim ref="imgtheme" :item="item" :type="type" @cntclick="tothemeinfo"></dim>
+						<!--点赞  回复数量等-->
 						<div class="thememunu">
 							<span class="float-left">
 								<i class="fa good fa-comments-o" style="padding-right: 5px;"></i>
@@ -60,7 +63,7 @@
         		this.pullinit();
         	},
         	tothemeinfo(item){
-        		this.$router.push({path:'theme/themeinfo?id='+item.id});
+        		this.$router.push({path:'/theme/themeinfo?id='+item.id});
         	},
         	togood(index){
         		var item =this.listDatas[index];
