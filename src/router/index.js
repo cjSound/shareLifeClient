@@ -36,7 +36,10 @@ const router = new VueRouter({
 	  	}, {
 	    	path:'/commom/goodbad',meta:{},component:require('../apps/commom/goodbad')
 	  	},
-	  	
+	  	/*个人信息*/
+	  	{
+	    	path:'/perinfo/perinfoMain',meta:{},component:require('../apps/perinfo/perinfoMain')
+	  	},
 	]
 });
 /*覆盖router  go 默认的跳转方式*/

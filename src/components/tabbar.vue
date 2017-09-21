@@ -16,7 +16,7 @@
 			<span class="mui-icon mui-icon-chatbubble"></span>
 			<span class="mui-tab-label">消息</span>
 		</a>
-		<a class="zy-tab-item"  :class="{'zy-active':app.tabbar=='5'}" @click="goto('operations?close=no',5)">
+		<a class="zy-tab-item"  :class="{'zy-active':app.tabbar=='5'}" @click="goto('perinfo/perinfoMain?close=no',5)">
 			<span class="mui-icon mui-icon-gear"></span>
 			<span class="mui-tab-label">我的</span>
 		</a>
