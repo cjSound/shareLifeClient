@@ -2,7 +2,17 @@
 		<div class="zy-content" id="perinfo">
 		<div class="info">
 			<div class="content">
-				 
+				<img class="bg" src="../../assets/images/pf1.jpg" alt="" />
+				<div class="pinfo" v-if="perinfo!=''">
+					<img :src="perinfo.icon" alt="" />
+				</div>
+				<div class="pinfo" v-else="">
+					<span><img src="../../assets/images/heads.jpg" alt="" /></span>
+					<div class="pp">
+						<div class="name">请登录</div>
+						<div class="desc">每个人都温柔以待，想心中所乐每个人都温柔以待每个人都温柔以待</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="mui-content">
@@ -87,7 +97,7 @@
 	}
 </script>
 
-<style   scoped="">
+<style   scoped="" lang="scss">
 .mui-table-view  {
 	margin-top: 20px;
 }
@@ -98,24 +108,59 @@
 .mui-table-view-cell i{
 	padding-right: 10px;
 }
-.info img{
-	    width: 60px;
-    height: 60px;
-    border-radius: 50px;
-}
+ 
 .content{
     margin: 0 auto;
     text-align: center;
     height: 200px;
+    position: relative;
+    margin-bottom: 50px;
 }
-.info{
+.info img.bg{
+	width: 100%;
+	height: 100%;
+	z-index: -1;
 }
-.info .show{
-	font-size: 15px;
-	padding: 2px 0;
+.info .pinfo{
+	position: absolute;
+    z-index: 1;
+    bottom: -40px;
+    height: 80px;
+    img{
+    	height: 80px;
+    	width: 80px;
+    	border-radius: 80px;	
+    	float: left;
+    	padding: 3px;
+    }
+    span{
+    	background: #FFFFFF;
+    	overflow: hidden;
+    	display: inline-block;
+    	float: left;
+    	border-radius: 80px;
+    	margin:0 10px 0 20px;
+    }
+    .pp{
+    	float: left;
+    	height: 80px;
+    	line-height: 40px;
+    	text-align: left;
+    	max-width: 230px;
+    	.name{
+    		color: #FFFFFF;
+    		font-size: 16px;
+    	}
+    	.desc{
+    		color: #1F2D3D;	
+    		overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+    	}
+    }
 }
 .bottoms{
-	    position: absolute;
+	position: absolute;
     bottom: 0;
     width: 100%;
     text-align: center;

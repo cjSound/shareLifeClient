@@ -15,6 +15,7 @@ const store = new Vuex.Store({
   		tabbar:'',
   		num:0
   	},
+  	perinfo:'',
   	login:{
   		state:false
   	},
@@ -47,6 +48,7 @@ const store = new Vuex.Store({
   },
   getters: {//Getters: 在组件内部获取 store 中状态的函数
     app: state=>state.app,
+    perinfo:state=>state.perinfo,
     router: state=>state.router,
     login: state=>state.login,
     loading: state=>state.loading,
@@ -71,6 +73,9 @@ const store = new Vuex.Store({
 	    if(zy.logo!=null&&zy.logo!=''){
 	    	state.app.logo=zy.logo;
 	    }
+   },
+   setPerinfo(state,pinfo){
+   	state.perinfo=pinfo;
    },
    setPublish(state,publish){
    	state.publish =publish;

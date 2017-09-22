@@ -86,6 +86,7 @@
 			 			res.data.user.setpsw=_this.setpsw;
 			 			res.data.user.pp=_this.user.password;
 			 			SY.User.setUser(res.data.user);
+			 			_this.$store.commit("setPerinfo",res.data.user);
 			 			SY.localstorage.put("info",res.data.info);
 			 			if(_this.module){
 			 				_this.$emit('success');
