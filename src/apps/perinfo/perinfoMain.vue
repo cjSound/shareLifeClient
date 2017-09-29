@@ -14,7 +14,31 @@
 					</div>
 				</div>
 			</div>
+			<div class="pmenu">
+					<ul class="">
+						<li class="menu">
+							<div class="num">1</div>
+							<div class="name">帖子</div>
+							<i class="right-line"></i>
+						</li>
+						<li class="menu">
+							<div class="num">1</div>
+							<div class="name">获赞</div>
+							<i class="right-line"></i>
+						</li>
+						<li class="menu">
+							<div class="num">1</div>
+							<div class="name">关注</div>
+							<i class="right-line"></i>
+						</li>
+						<li class="menu">
+							<div class="num">1</div>
+							<div class="name">粉丝</div>
+						</li>
+					</ul>
+				</div>
 		</div>
+		<div class="line"></div>
 		<div class="mui-content">
 			<ul class="mui-table-view  ">
 				<li class="mui-table-view-cell"  >
@@ -114,7 +138,7 @@
     text-align: center;
     height: 200px;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
 }
 .info img.bg{
 	width: 100%;
@@ -158,6 +182,35 @@
             white-space: nowrap;
     	}
     }
+}
+.pmenu{
+	margin-bottom: 10px;
+	ul{
+		padding: 0;
+		margin: 0;
+		overflow: hidden;
+		text-align: center;
+	}
+	.right-line{
+		position: absolute;
+	    border-right: 1px solid #d1d1d1;
+	    width: 1px;
+	    height: 20px;
+	    right: 0;
+	    top: 12px;
+	}
+	.menu{
+		list-style: none;	
+		width: 25%;
+		float: left;
+		position: relative;
+		.num{
+			color: #5f5959;
+		}
+		.name{
+			color: #9c9696;
+		}
+	}
 }
 .bottoms{
 	position: absolute;
